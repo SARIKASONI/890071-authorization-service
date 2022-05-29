@@ -1,0 +1,10 @@
+version: 1.0
+Resources:
+  - TargetService:
+      Type: AWS::ECS::Service
+      Properties:
+        TaskDefinition: "arn:aws:ecs:us-west-2:156962844638:task-definition/890071-PMS-authorization-service:1"
+        LoadBalancerInfo:
+          ContainerName: "890071-PMS-authorization-service"
+          ContainerPort: "8081"
+        PlatformVersion: "LATEST"
