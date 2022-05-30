@@ -5,15 +5,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Optional;
 
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.util.StringUtils;
+
 
 import com.cts.authorization.model.User;
 
@@ -50,7 +46,7 @@ class UserRepositoryTests {
 		log.info("START - testFindUserById_userDoesNotExists()");
 		final String id = "adminDoesNotExist";
 		Optional<User> userOptional = userRepository.findById(id);
-		assertTrue(StringUtils.isEmpty(userOptional));
+		assertTrue(!userOptional.isPresent());
 		log.info("END - testFindUserById_userDoesNotExists()");
 	}
 }
